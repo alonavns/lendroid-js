@@ -1,6 +1,10 @@
 import * as ABIs from './ContractABIs'
 
 export const CONTRACT_ADDRESSES = {
+  PROTOCOL: {
+    1: '0x0000000000000000000000000000000000000000',
+    42: '0x920062d07699b8d5854cc5c3cd36bc5bfbe126e7'
+  },
   WETH: {
     1: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
     42: '0xd0a1e359811322d97991e03f863a0c30c2cf029c'
@@ -34,8 +38,10 @@ export const CONTRACT_ADDRESSES = {
   TokenTransferProxy: {
     42: '0xf1dbcef9820a758eead322f525e38c9289dc09d0',
     def: ABIs.TokenTransferProxyABI
-  },
+  }
 }
 
 export const CONTRACT_TOKENS = Object.keys(CONTRACT_ADDRESSES)
-export const BALLANCE_TOKENS = CONTRACT_TOKENS.filter(token => token.length < 5 && token !== 'Loan')
+export const BALLANCE_TOKENS = CONTRACT_TOKENS.filter(
+  token => token.length < 5 && token !== 'Loan'
+)

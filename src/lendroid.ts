@@ -130,13 +130,13 @@ export class Lendroid {
         return Logger.error(LOGGER_CONTEXT.API_ERROR, err.message)
       }
 
-      this.orders.myOrders.lend = orders.offers.filter(
+      this.orders.myOrders.lend = orders.result.filter(
         item => item.lender === address
       )
-      this.orders.myOrders.borrow = orders.offers.filter(
+      this.orders.myOrders.borrow = orders.result.filter(
         item => item.borrower === address
       )
-      this.orders.orders = orders.offers.filter(
+      this.orders.orders = orders.result.filter(
         item => item.lender !== address && item.borrower !== address
       )
       setTimeout(() => this.debounceUpdate(), 1000)
@@ -539,15 +539,15 @@ export class Lendroid {
       }
 
       if (token === 'PROTOCOL') {
-        const { apiEndpoint, apiLoanRequests } = this
-        this.lender = new Lender(metamask.address || '', res.data, {
-          apiEndpoint,
-          apiLoanRequests
-        })
-        this.borrower = new Borrower(metamask.address || '', res.data, {
-          apiEndpoint,
-          apiLoanRequests
-        })
+        // const { apiEndpoint, apiLoanRequests } = this
+        // this.lender = new Lender(metamask.address || '', res.data, {
+        //   apiEndpoint,
+        //   apiLoanRequests
+        // })
+        // this.borrower = new Borrower(metamask.address || '', res.data, {
+        //   apiEndpoint,
+        //   apiLoanRequests
+        // })
       }
     })
   }

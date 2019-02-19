@@ -273,8 +273,8 @@ export class Lendroid {
       postData.creatorSalt
     ]
 
-    const loanOfferRegistryContractInstance = contracts.contracts
-      ? contracts.contracts.LoanOfferRegistry
+    const protocolInstance = contracts.contracts
+      ? contracts.contracts.Protocol
       : null
 
     const onSign = hash => {
@@ -300,8 +300,8 @@ export class Lendroid {
         })
     }
 
-    const orderHash = await loanOfferRegistryContractInstance.methods
-      .computeOfferHash(addresses, values)
+    const orderHash = await protocolInstance.methods
+      .kernel_hash(addresses, values)
       .call()
     onSign(orderHash)
   }
@@ -538,7 +538,7 @@ export class Lendroid {
         }
       }
 
-      if (token === 'PROTOCOL') {
+      if (token === 'Protocol') {
         // const { apiEndpoint, apiLoanRequests } = this
         // this.lender = new Lender(metamask.address || '', res.data, {
         //   apiEndpoint,

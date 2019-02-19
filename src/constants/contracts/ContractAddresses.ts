@@ -1,7 +1,7 @@
 import * as ABIs from './ContractABIs'
 
 export const CONTRACT_ADDRESSES = {
-  PROTOCOL: {
+  Protocol: {
     1: '0x0000000000000000000000000000000000000000',
     42: '0x920062d07699b8d5854cc5c3cd36bc5bfbe126e7',
     def: ABIs.ProtocolABI
